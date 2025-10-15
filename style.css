@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#sudoku-board {
+    display: inline-grid;
+    grid-template-columns: repeat(9, 50px);
+    grid-template-rows: repeat(9, 50px);
+    gap: 0;
+    border: 3px solid #333;
+    background-color: #333;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.cell:hover {
+    background-color: #e3f2fd;
+}
+
+.cell.selected {
+    background-color: #bbdefb;
+}
+
+.cell.editable {
+    background-color: #fff9c4;
+}
+
+.cell.correct {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+}
+
+.cell.incorrect {
+    background-color: #ffcdd2;
+    color: #c62828;
+}
+
+/* Border styling for 3x3 boxes */
+.cell {
+    border: 1px solid #ddd;
+}
+
+/* Right border for 3x3 box boundaries */
+.cell:nth-child(3n) {
+    border-right: 2px solid #333;
+}
+
+/* Bottom border for 3x3 box boundaries */
+.cell:nth-child(n + 19):nth-child(-n + 27),
+.cell:nth-child(n + 46):nth-child(-n + 54) {
+    border-bottom: 2px solid #333;
+}
+
+/* Remove double borders on the edges */
+.cell:nth-child(9n) {
+    border-right: none;
+}
+
+.cell:nth-child(n + 73) {
+    border-bottom: none;
+}
+
+.reset-button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #1976d2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+    background-color: #1565c0;
+}
+
+.reset-button:active {
+    background-color: #0d47a1;
+}
+
+.success-message {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2e7d32;
+    background-color: #c8e6c9;
+    border-radius: 5px;
+    border: 2px solid #4caf50;
+}
+
+.success-message.hidden {
+    display: none;
+}
